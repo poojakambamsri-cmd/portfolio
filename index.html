@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kambam Pooja Sri | CSE (AI & ML) Portfolio & AI Chatbot</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkslate: '#0B0F19',
+                        obsidian: '#111827',
+                        carddark: '#1F2937',
+                        cyanaccent: '#06B6D4',
+                        violetaccent: '#8B5CF6',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0B0F19;
+            color: #F3F4F6;
+        }
+        .glass-panel {
+            background: rgba(31, 41, 55, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.2);
+        }
+        .glow-violet {
+            box-shadow: 0 0 25px rgba(139, 92, 246, 0.2);
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4B5563;
+        }
+    </style>
+</head>
+<body class="bg-darkslate text-gray-100 min-h-screen selection:bg-cyanaccent selection:text-black relative">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-gray-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyanaccent to-violetaccent flex items-center justify-center font-bold text-black text-lg group-hover:scale-105 transition-transform shadow-lg shadow-cyanaccent/20">
+                    PS
+                </div>
+                <div>
+                    <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-cyanaccent via-violetaccent to-white bg-clip-text text-transparent">Kambam Pooja Sri</span>
+                    <span class="block text-xs text-gray-400 font-medium">CSE (AI & ML) @ VNR VJIET</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-cyanaccent transition-colors">About</a>
+                <a href="#skills" class="hover:text-cyanaccent transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-cyanaccent transition-colors">Projects</a>
+                <a href="#experience" class="hover:text-cyanaccent transition-colors">Experience</a>
+                <a href="#resume" class="hover:text-cyanaccent transition-colors">Resume</a>
+                <a href="#contact" class="hover:text-cyanaccent transition-colors">Contact</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="https://github.com/poojakambamsri-cmd" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-xl bg-gray-800/80 hover:bg-gray-700/80 border border-gray-700 text-xs font-semibold text-cyanaccent transition-all">
+                    <i data-lucide="github" class="w-4 h-4"></i> GitHub Profile
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-gray-800 text-gray-300 hover:text-white">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-gray-800 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block py-2 text-gray-300 hover:text-cyanaccent">About</a>
+            <a href="#skills" class="block py-2 text-gray-300 hover:text-cyanaccent">Skills</a>
+            <a href="#projects" class="block py-2 text-gray-300 hover:text-cyanaccent">Projects</a>
+            <a href="#experience" class="block py-2 text-gray-300 hover:text-cyanaccent">Experience</a>
+            <a href="#resume" class="block py-2 text-gray-300 hover:text-cyanaccent">Resume</a>
+            <a href="#contact" class="block py-2 text-gray-300 hover:text-cyanaccent">Contact</a>
+            <div class="pt-2">
+                <a href="https://github.com/poojakambamsri-cmd" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-cyanaccent/10 border border-cyanaccent/30 text-cyanaccent font-semibold text-sm">
+                    <i data-lucide="github" class="w-4 h-4"></i> Visit GitHub Profile
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+        <!-- Background Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-cyanaccent/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute top-1/3 left-1/3 w-80 h-80 bg-violetaccent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyanaccent/10 border border-cyanaccent/30 text-cyanaccent text-xs font-semibold tracking-wide uppercase">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> AI & ML Undergraduate • Fast Learner
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                        Hi, I'm <span class="bg-gradient-to-r from-cyanaccent via-violetaccent to-white bg-clip-text text-transparent">Kambam Pooja Sri</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        2nd Year B.Tech CSE (AI & ML) student at <span class="text-white font-semibold">VNR VJIET, Hyderabad</span>. Passionate about Full Stack Web Development, Artificial Intelligence orchestration, and building robust, scalable applications.
+                    </p>
+
+                    <!-- Work Ethic Quote Box -->
+                    <div class="p-4 rounded-2xl glass-panel border-l-4 border-cyanaccent text-left max-w-xl mx-auto lg:mx-0 shadow-lg">
+                        <p class="text-xs text-cyanaccent font-semibold uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                            <i data-lucide="quote" class="w-3.5 h-3.5"></i> Core Philosophy & Work Ethic
+                        </p>
+                        <p class="text-sm text-gray-300 italic">
+                            "If you work with me, I can learn fast as I am a fast learner and also coordinate effectively with everyone in the team."
+                        </p>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyanaccent to-violetaccent text-black font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-cyanaccent/25 flex items-center gap-2">
+                            <i data-lucide="folder-git-2" class="w-4 h-4"></i> Explore Projects
+                        </a>
+                        <a href="https://github.com/poojakambamsri-cmd" target="_blank" rel="noopener noreferrer" class="px-6 py-3.5 rounded-xl bg-carddark hover:bg-gray-700 border border-gray-700 text-white font-semibold text-sm transition-all flex items-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i> GitHub Account
+                        </a>
+                        <button onclick="toggleChatbot()" class="px-6 py-3.5 rounded-xl bg-violetaccent/20 hover:bg-violetaccent/30 border border-violetaccent/40 text-violetaccent font-semibold text-sm transition-all flex items-center gap-2 animate-pulse">
+                            <i data-lucide="bot" class="w-4 h-4"></i> Chat With My AI
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Visual Card / Avatar -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 rounded-3xl glass-panel p-3 glow-cyan animate-float">
+                        <div class="w-full h-full rounded-2xl bg-gradient-to-br from-gray-900 via-gray-800 to-darkslate flex flex-col items-center justify-center text-center p-6 border border-gray-700/50 relative overflow-hidden">
+                            <!-- Decorative circles -->
+                            <div class="absolute -right-10 -bottom-10 w-32 h-32 bg-cyanaccent/10 rounded-full blur-xl"></div>
+                            <div class="absolute -left-10 -top-10 w-32 h-32 bg-violetaccent/10 rounded-full blur-xl"></div>
+                            
+                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-cyanaccent to-violetaccent flex items-center justify-center text-black text-3xl font-black mb-4 shadow-xl">
+                                PS
+                            </div>
+                            <h3 class="text-lg font-bold text-white">Kambam Pooja Sri</h3>
+                            <p class="text-xs text-cyanaccent font-medium mt-1">CSE (AI & ML) Specialist</p>
+                            <div class="mt-4 flex items-center gap-2">
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">VNR VJIET</span>
+                                <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">Hyderabad</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-obsidian/40 border-y border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-cyanaccent mb-3">Background & Ambition</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">About Me</h3>
+                <p class="text-gray-400 mt-3 text-base">Get to know my academic journey, passion for AI & ML, and collaborative team mindset.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-cyanaccent/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-cyanaccent/10 text-cyanaccent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Academic Excellence</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Currently in my 2nd Year of B.Tech in Computer Science & Engineering with a specialization in Artificial Intelligence & Machine Learning at <span class="text-cyanaccent font-medium">VNR VJIET, Hyderabad</span>.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-violetaccent/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-violetaccent/10 text-violetaccent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="zap" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Fast Learner & Team Player</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        I thrive in dynamic environments where rapid skill acquisition and seamless cross-functional team coordination drive project success.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-cyanaccent/50 transition-all group">
+                    <div class="w-12 h-12 rounded-2xl bg-cyanaccent/10 text-cyanaccent flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="cpu" class="w-6 h-6"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">AI & Full Stack Focus</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Bridging full-stack web engineering with state-of-the-art AI tooling including LangChain, Ollama, ChromaDB, and intelligent pipeline architectures.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Matrix Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-violetaccent mb-3">Technical Expertise</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Skills Matrix</h3>
+                <p class="text-gray-400 mt-3 text-base">Core languages, frameworks, web tools, and AI/ML competencies.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Category 1: Programming Languages -->
+                <div class="p-6 rounded-3xl glass-panel space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2.5 rounded-xl bg-cyanaccent/10 text-cyanaccent">
+                            <i data-lucide="code-2" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Programming Languages</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-cyanaccent">Python</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-cyanaccent">Java</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-cyanaccent">JavaScript</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-cyanaccent">C</span>
+                    </div>
+                </div>
+
+                <!-- Category 2: Web & AI Tech Stack -->
+                <div class="p-6 rounded-3xl glass-panel space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2.5 rounded-xl bg-violetaccent/10 text-violetaccent">
+                            <i data-lucide="layers" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">Web & AI Integration</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-violetaccent">Full Stack Dev</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-violetaccent">Node.js</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-violetaccent">Express.js</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-violetaccent">React</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-violetaccent">MongoDB</span>
+                    </div>
+                </div>
+
+                <!-- Category 3: AI Tooling & Fundamentals -->
+                <div class="p-6 rounded-3xl glass-panel space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2.5 rounded-xl bg-cyanaccent/10 text-cyanaccent">
+                            <i data-lucide="cpu" class="w-5 h-5"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-white">AI Tools & Core</h4>
+                    </div>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-cyanaccent">LangChain</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-cyanaccent">Ollama</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-cyanaccent">ChromaDB</span>
+                        <span class="px-3 py-1.5 rounded-xl bg-gray-800 border border-gray-700 text-xs font-semibold text-cyanaccent">Data Structures & Algorithms (DSA)</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Showcase Section -->
+    <section id="projects" class="py-20 bg-obsidian/40 border-y border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-cyanaccent mb-3">Portfolio Work</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Featured Projects</h3>
+                <p class="text-gray-400 mt-3 text-base">Directly explore my repositories and web platforms hosted on GitHub.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Project 1: Peer-to-Peer WebForge -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-cyanaccent/50 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-2xl bg-cyanaccent/10 text-cyanaccent group-hover:scale-110 transition-transform">
+                                <i data-lucide="git-branch" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-cyanaccent/10 border border-cyanaccent/30 text-cyanaccent text-xs font-semibold">Collaboration</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Peer-to-Peer WebForge</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Collaborative peer-to-peer web development platform and asset share pipeline engineered for seamless remote developer synchronization.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">JavaScript</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">Node.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">P2P Network</span>
+                        </div>
+                        <a href="https://github.com/poojakambamsri-cmd/peer_to_peer-WebForge/stargazers" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-cyanaccent/10 hover:bg-cyanaccent/20 border border-cyanaccent/30 text-cyanaccent font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i> Check Repository on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2: ReverseLogix-AI -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-violetaccent/50 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-2xl bg-violetaccent/10 text-violetaccent group-hover:scale-110 transition-transform">
+                                <i data-lucide="brain" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-violetaccent/10 border border-violetaccent/30 text-violetaccent text-xs font-semibold">AI Logistics</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-3">ReverseLogix-AI</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            AI-powered reverse logistics management and intelligent returns analytics system to optimize supply chain workflows and predict return patterns.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">AI / ML</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">Analytics</span>
+                        </div>
+                        <a href="https://github.com/poojakambamsri-cmd/ReverseLogix-AI" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-violetaccent/10 hover:bg-violetaccent/20 border border-violetaccent/30 text-violetaccent font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i> Check Repository on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Wish Sharing App -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-cyanaccent/50 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-2xl bg-cyanaccent/10 text-cyanaccent group-hover:scale-110 transition-transform">
+                                <i data-lucide="gift" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-cyanaccent/10 border border-cyanaccent/30 text-cyanaccent text-xs font-semibold">Full Stack</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Wish Sharing App</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Interactive full-stack web application for sending and managing customized holiday and event greetings with delightful UI animations.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">React</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">Node.js</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">MongoDB</span>
+                        </div>
+                        <a href="https://github.com/poojakambamsri-cmd/wish-sharing-app" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-cyanaccent/10 hover:bg-cyanaccent/20 border border-cyanaccent/30 text-cyanaccent font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i> Check Repository on GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 4: Geometry Game -->
+                <div class="p-8 rounded-3xl glass-panel hover:border-violetaccent/50 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="p-3 rounded-2xl bg-violetaccent/10 text-violetaccent group-hover:scale-110 transition-transform">
+                                <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                            </div>
+                            <span class="px-3 py-1 rounded-full bg-violetaccent/10 border border-violetaccent/30 text-violetaccent text-xs font-semibold">Python Turtle</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-3">Geometry Game</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                            Interactive Python & Turtle graphics game built for learning coordinate geometry through engaging visual gameplay and logic puzzles.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">Python</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">Turtle Graphics</span>
+                            <span class="px-2.5 py-1 rounded-md bg-gray-800 text-[11px] text-gray-300 font-medium border border-gray-700">Game Dev</span>
+                        </div>
+                        <a href="https://github.com/poojakambamsri-cmd/Geometry_Game" target="_blank" rel="noopener noreferrer" class="w-full py-3 rounded-xl bg-violetaccent/10 hover:bg-violetaccent/20 border border-violetaccent/30 text-violetaccent font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="github" class="w-4 h-4"></i> Check Repository on GitHub
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Leadership Section -->
+    <section id="experience" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-violetaccent mb-3">Journey & Growth</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Experience & Leadership</h3>
+                <p class="text-gray-400 mt-3 text-base">Academic leadership, team coordination, and continuous technical evolution.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Timeline Item 1 -->
+                <div class="p-8 rounded-3xl glass-panel relative pl-10 border-l-4 border-cyanaccent">
+                    <div class="absolute -left-3.5 top-8 w-6 h-6 rounded-full bg-cyanaccent text-black flex items-center justify-center text-xs font-bold">
+                        <i data-lucide="check" class="w-3.5 h-3.5"></i>
+                    </div>
+                    <span class="text-xs text-cyanaccent font-semibold uppercase tracking-wider">2024 - Present</span>
+                    <h4 class="text-xl font-bold text-white mt-1">B.Tech in CSE (AI & ML)</h4>
+                    <p class="text-sm text-gray-400 mt-0.5">VNR Vignana Jyothi Institute of Engineering and Technology (VNR VJIET), Hyderabad</p>
+                    <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+                        Deepening expertise in core Data Structures & Algorithms, Artificial Intelligence, Machine Learning pipelines, and modern full-stack web architectures.
+                    </p>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="p-8 rounded-3xl glass-panel relative pl-10 border-l-4 border-violetaccent">
+                    <div class="absolute -left-3.5 top-8 w-6 h-6 rounded-full bg-violetaccent text-black flex items-center justify-center text-xs font-bold">
+                        <i data-lucide="users" class="w-3.5 h-3.5"></i>
+                    </div>
+                    <span class="text-xs text-violetaccent font-semibold uppercase tracking-wider">Collaboration & Team Coordination</span>
+                    <h4 class="text-xl font-bold text-white mt-1">Peer & Project Team Lead</h4>
+                    <p class="text-sm text-gray-400 mt-0.5">VNR VJIET Student Technical Projects</p>
+                    <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+                        Coordinating effectively across diverse developer teams, ensuring rapid onboarding, clean code practices, and successful integration of AI services like LangChain and Ollama into collaborative web apps.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Viewer Section -->
+    <section id="resume" class="py-20 bg-obsidian/40 border-y border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-cyanaccent mb-3">Professional Profile</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Resume Viewer & Overview</h3>
+                <p class="text-gray-400 mt-3 text-base">Review my academic credentials, core technical proficiencies, and project highlights.</p>
+            </div>
+
+            <!-- Resume Preview Card -->
+            <div class="max-w-4xl mx-auto p-8 sm:p-12 rounded-3xl glass-panel text-left space-y-8 relative overflow-hidden glow-cyan">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-gray-700/60 pb-6">
+                    <div>
+                        <h4 class="text-2xl font-extrabold text-white">Kambam Pooja Sri</h4>
+                        <p class="text-sm text-cyanaccent font-medium mt-1">2nd Year B.Tech CSE (AI & ML) • VNR VJIET, Hyderabad</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="https://github.com/poojakambamsri-cmd" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-xl bg-cyanaccent/10 hover:bg-cyanaccent/20 border border-cyanaccent/30 text-cyanaccent text-xs font-semibold flex items-center gap-2 transition-all">
+                            <i data-lucide="github" class="w-4 h-4"></i> GitHub Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Resume Sections Preview -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm">
+                    <div class="space-y-3">
+                        <h5 class="font-bold text-white flex items-center gap-2 text-base text-cyanaccent">
+                            <i data-lucide="graduation-cap" class="w-4 h-4"></i> Education
+                        </h5>
+                        <p class="text-gray-300 font-medium">B.Tech in Computer Science & Engineering (AI & ML)</p>
+                        <p class="text-gray-400 text-xs">VNR Vignana Jyothi Institute of Engineering and Technology, Hyderabad (2024 – Present)</p>
+                    </div>
+
+                    <div class="space-y-3">
+                        <h5 class="font-bold text-white flex items-center gap-2 text-base text-violetaccent">
+                            <i data-lucide="code-2" class="w-4 h-4"></i> Technical Proficiencies
+                        </h5>
+                        <p class="text-gray-300 text-xs leading-relaxed">
+                            <strong class="text-white">Languages:</strong> Python, Java, JavaScript, C<br>
+                            <strong class="text-white">Web & AI:</strong> Full Stack Dev, Node.js, Express.js, React, MongoDB, LangChain, Ollama, ChromaDB<br>
+                            <strong class="text-white">Fundamentals:</strong> Data Structures & Algorithms (DSA), AI Orchestration
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-700/60 pt-6">
+                    <h5 class="font-bold text-white flex items-center gap-2 text-base text-cyanaccent mb-3">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i> Key Projects Overview
+                    </h5>
+                    <ul class="list-disc list-inside text-xs text-gray-300 space-y-1.5">
+                        <li><strong class="text-white">Peer-to-Peer WebForge:</strong> Collaborative P2P web dev platform and asset share pipeline.</li>
+                        <li><strong class="text-white">ReverseLogix-AI:</strong> AI-powered reverse logistics management and intelligent returns analytics.</li>
+                        <li><strong class="text-white">Wish Sharing App:</strong> Interactive full-stack web app for customized event greetings.</li>
+                        <li><strong class="text-white">Geometry Game:</strong> Interactive Python Turtle game for learning coordinate geometry.</li>
+                    </ul>
+                </div>
+
+                <div class="flex justify-center pt-4">
+                    <button onclick="alert('Thank you for your interest! You can explore all repositories directly on Pooja Sri\'s GitHub profile: https://github.com/poojakambamsri-cmd')" class="px-6 py-3 rounded-xl bg-gradient-to-r from-cyanaccent to-violetaccent text-black font-bold text-xs hover:opacity-90 transition-opacity flex items-center gap-2 shadow-lg">
+                        <i data-lucide="download" class="w-4 h-4"></i> Request / Download Full CV
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-widest text-cyanaccent mb-3">Get In Touch</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Let's Build Together</h3>
+                <p class="text-gray-400 mt-3 text-base">Looking to collaborate on AI integration, full-stack projects, or team opportunities? Reach out!</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-5xl mx-auto">
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="p-8 rounded-3xl glass-panel space-y-6">
+                        <h4 class="text-xl font-bold text-white">Contact Information</h4>
+                        
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-cyanaccent/10 text-cyanaccent shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs text-gray-400 font-semibold uppercase">Location</h5>
+                                <p class="text-white font-medium text-sm">VNR VJIET, Hyderabad, Telangana, India</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-violetaccent/10 text-violetaccent shrink-0">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs text-gray-400 font-semibold uppercase">GitHub Profile</h5>
+                                <a href="https://github.com/poojakambamsri-cmd" target="_blank" rel="noopener noreferrer" class="text-cyanaccent font-medium text-sm hover:underline">github.com/poojakambamsri-cmd</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 rounded-xl bg-cyanaccent/10 text-cyanaccent shrink-0">
+                                <i data-lucide="zap" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h5 class="text-xs text-gray-400 font-semibold uppercase">Work Ethic</h5>
+                                <p class="text-gray-300 text-xs italic mt-1">"Fast learner, excellent team coordinator, and passionate about AI & Web."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-7">
+                    <form onsubmit="handleContactSubmit(event)" class="p-8 rounded-3xl glass-panel space-y-6">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Your Name</label>
+                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-cyanaccent text-sm transition-colors" placeholder="John Doe">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Your Email</label>
+                            <input type="email" required class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-cyanaccent text-sm transition-colors" placeholder="john@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Message</label>
+                            <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-cyanaccent text-sm transition-colors" placeholder="Hello Pooja, I'd like to collaborate on..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyanaccent to-violetaccent text-black font-bold text-sm hover:opacity-90 transition-opacity shadow-lg shadow-cyanaccent/20 flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-obsidian border-t border-gray-800 text-center text-sm text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="flex items-center justify-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cyanaccent to-violetaccent flex items-center justify-center font-bold text-black text-sm">
+                    PS
+                </div>
+                <span class="font-bold text-white text-base">Kambam Pooja Sri</span>
+            </div>
+            <p class="max-w-md mx-auto text-xs text-gray-400">
+                2nd Year B.Tech CSE (AI & ML) Student at VNR VJIET, Hyderabad. Fast learner, team coordinator, and full-stack AI developer.
+            </p>
+            <div class="flex items-center justify-center gap-6 text-cyanaccent font-medium text-xs">
+                <a href="https://github.com/poojakambamsri-cmd" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-1">
+                    <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub: poojakambamsri-cmd
+                </a>
+            </div>
+            <p class="text-xs text-gray-500 pt-4 border-t border-gray-800/80">
+                © 2026 Kambam Pooja Sri. All rights reserved. Built with Tailwind CSS & AI Integration.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Floating AI Chatbot Widget -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <!-- Toggle Button -->
+        <button id="chatbot-toggle-btn" onclick="toggleChatbot()" class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyanaccent to-violetaccent text-black font-bold flex items-center justify-center shadow-2xl hover:scale-105 transition-transform glow-cyan">
+            <i data-lucide="bot" class="w-7 h-7"></i>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chatbot-window" class="hidden absolute bottom-20 right-0 w-80 sm:w-96 h-[500px] glass-panel rounded-3xl shadow-2xl border border-gray-700 flex flex-col overflow-hidden transition-all">
+            <!-- Header -->
+            <div class="p-4 bg-gray-900/90 border-b border-gray-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-cyanaccent/10 text-cyanaccent flex items-center justify-center font-bold">
+                        <i data-lucide="bot" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Pooja's AI Assistant</h4>
+                        <p class="text-[10px] text-cyanaccent font-medium flex items-center gap-1">
+                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Online • Ask me anything!
+                        </p>
+                    </div>
+                </div>
+                <button onclick="toggleChatbot()" class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Messages Container -->
+            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 text-xs">
+                <div class="flex items-start gap-2.5">
+                    <div class="w-7 h-7 rounded-xl bg-cyanaccent/10 text-cyanaccent flex items-center justify-center shrink-0">
+                        <i data-lucide="bot" class="w-4 h-4"></i>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-gray-800 text-gray-200 max-w-[80%] leading-relaxed border border-gray-700/60">
+                        Hi there! 👋 I'm Pooja Sri's AI assistant. You can ask me about her studies at VNR VJIET, her core skills (Python, Java, React, LangChain), or her GitHub projects like <code class="text-cyanaccent">Peer-to-Peer WebForge</code> and <code class="text-cyanaccent">ReverseLogix-AI</code>!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suggested Quick Questions -->
+            <div class="px-3 py-2 bg-gray-900/50 border-t border-gray-800 flex gap-2 overflow-x-auto text-[11px] scrollbar-none">
+                <button onclick="sendQuickQuery('What are Pooja\'s core skills?')" class="px-2.5 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-cyanaccent border border-gray-700 shrink-0">Skills?</button>
+                <button onclick="sendQuickQuery('Tell me about her projects')" class="px-2.5 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-cyanaccent border border-gray-700 shrink-0">Projects?</button>
+                <button onclick="sendQuickQuery('What is her work ethic?')" class="px-2.5 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-violetaccent border border-gray-700 shrink-0">Work Ethic?</button>
+                <button onclick="sendQuickQuery('Give me her GitHub link')" class="px-2.5 py-1 rounded-lg bg-gray-800 hover:bg-gray-700 text-violetaccent border border-gray-700 shrink-0">GitHub?</button>
+            </div>
+
+            <!-- Input Form -->
+            <form onsubmit="handleChatSubmit(event)" class="p-3 bg-gray-900 border-t border-gray-800 flex gap-2">
+                <input type="text" id="chat-input" placeholder="Ask about Pooja's portfolio..." class="flex-1 px-3 py-2 rounded-xl bg-gray-800 border border-gray-700 text-white text-xs focus:outline-none focus:border-cyanaccent">
+                <button type="submit" class="px-3 py-2 rounded-xl bg-cyanaccent text-black font-bold hover:opacity-90 flex items-center justify-center">
+                    <i data-lucide="send" class="w-4 h-4"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Chatbot Toggle
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbot-window');
+            chatbotWindow.classList.toggle('hidden');
+            if (!chatbotWindow.classList.contains('hidden')) {
+                document.getElementById('chat-input').focus();
+            }
+        }
+
+        // Knowledge Base for Chatbot
+        const profileData = {
+            fullName: "Kambam Pooja Sri",
+            role: "2nd Year B.Tech Student in Computer Science & Engineering (AI & ML) at VNR VJIET, Hyderabad",
+            workEthic: "If you work with me, I can learn fast as I am a fast learner and also coordinate effectively with everyone in the team.",
+            skills: "Python, Java, JavaScript, C, Full Stack Web Development with AI integration, Node.js, Express.js, React, MongoDB, Data Structures & Algorithms (DSA), LangChain, Ollama, ChromaDB",
+            github: "https://github.com/poojakambamsri-cmd",
+            projects: [
+                {
+                    name: "Peer-to-Peer WebForge",
+                    url: "https://github.com/poojakambamsri-cmd/peer_to_peer-WebForge/stargazers",
+                    desc: "Collaborative peer-to-peer web development platform and asset share pipeline."
+                },
+                {
+                    name: "ReverseLogix-AI",
+                    url: "https://github.com/poojakambamsri-cmd/ReverseLogix-AI",
+                    desc: "AI-powered reverse logistics management and intelligent returns analytics system."
+                },
+                {
+                    name: "Wish Sharing App",
+                    url: "https://github.com/poojakambamsri-cmd/wish-sharing-app",
+                    desc: "Interactive full-stack web application for sending and managing customized holiday and event greetings."
+                },
+                {
+                    name: "Geometry Game",
+                    url: "https://github.com/poojakambamsri-cmd/Geometry_Game",
+                    desc: "Interactive Python & Turtle graphics game for learning coordinate geometry through visual gameplay."
+                }
+            ]
+        };
+
+        // Chat Submission Handler
+        function handleChatSubmit(event) {
+            event.preventDefault();
+            const inputEl = document.getElementById('chat-input');
+            const query = inputEl.value.trim();
+            if (!query) return;
+
+            appendMessage(query, 'user');
+            inputEl.value = '';
+
+            // Generate AI response
+            setTimeout(() => {
+                const response = generateAIResponse(query);
+                appendMessage(response, 'bot');
+            }, 500);
+        }
+
+        function sendQuickQuery(query) {
+            appendMessage(query, 'user');
+            setTimeout(() => {
+                const response = generateAIResponse(query);
+                appendMessage(response, 'bot');
+            }, 500);
+        }
+
+        function appendMessage(text, sender) {
+            const chatMessages = document.getElementById('chat-messages');
+            const messageDiv = document.createElement('div');
+
+            if (sender === 'user') {
+                messageDiv.className = 'flex items-start justify-end gap-2.5';
+                messageDiv.innerHTML = `
+                    <div class="p-3 rounded-2xl bg-cyanaccent text-black font-medium max-w-[80%] leading-relaxed">
+                        ${escapeHtml(text)}
+                    </div>
+                    <div class="w-7 h-7 rounded-xl bg-gray-800 text-cyanaccent flex items-center justify-center shrink-0">
+                        <i data-lucide="user" class="w-4 h-4"></i>
+                    </div>
+                `;
+            } else {
+                messageDiv.className = 'flex items-start gap-2.5';
+                messageDiv.innerHTML = `
+                    <div class="w-7 h-7 rounded-xl bg-cyanaccent/10 text-cyanaccent flex items-center justify-center shrink-0">
+                        <i data-lucide="bot" class="w-4 h-4"></i>
+                    </div>
+                    <div class="p-3 rounded-2xl bg-gray-800 text-gray-200 max-w-[80%] leading-relaxed border border-gray-700/60">
+                        ${formatBotResponse(text)}
+                    </div>
+                `;
+            }
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            lucide.createIcons();
+        }
+
+        function escapeHtml(text) {
+            const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        function formatBotResponse(text) {
+            // Convert markdown-style links or plain URLs into clickable anchor tags
+            return text.replace(/(https:\/\/[^\s]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-cyanaccent underline font-semibold">$1</a>');
+        }
+
+        // Local AI Intent Matcher / Assistant Logic
+        function generateAIResponse(query) {
+            const q = query.toLowerCase();
+
+            if (q.includes('skill') || q.includes('tech') || q.includes('language') || q.includes('stack')) {
+                return `Pooja Sri's core skills include:\n• Languages: Python, Java, JavaScript, C\n• Web & AI: Full Stack Web Development, Node.js, Express.js, React, MongoDB\n• AI & Fundamentals: Data Structures & Algorithms (DSA), LangChain, Ollama, ChromaDB.`;
+            } else if (q.includes('project') || q.includes('work') || q.includes('app') || q.includes('repo')) {
+                let res = "Here are Pooja's featured projects:\n\n";
+                profileData.projects.forEach(p => {
+                    res += `• <b>${p.name}</b>: ${p.desc}\n  <a href="${p.url}" target="_blank" rel="noopener noreferrer">View on GitHub</a>\n\n`;
+                });
+                return res;
+            } else if (q.includes('ethic') || q.includes('learn') || q.includes('team') || q.includes('work with me')) {
+                return `Pooja's work philosophy is: "${profileData.workEthic}" She is dedicated to fast learning and collaborative team coordination!`;
+            } else if (q.includes('github') || q.includes('profile') || q.includes('link')) {
+                return `You can visit Pooja Sri's official GitHub profile here: https://github.com/poojakambamsri-cmd`;
+            } else if (q.includes('college') || q.includes('university') || q.includes('study') || q.includes('btech') || q.includes('vnrvjiet') || q.includes('hyderabad')) {
+                return `Pooja Sri is currently a 2nd Year B.Tech student in Computer Science & Engineering (AI & ML) at VNR VJIET, Hyderabad.`;
+            } else if (q.includes('peer-to-peer') || q.includes('webforge')) {
+                return `Peer-to-Peer WebForge is a collaborative peer-to-peer web development platform and asset share pipeline. Repository: https://github.com/poojakambamsri-cmd/peer_to_peer-WebForge/stargazers`;
+            } else if (q.includes('reverselogix') || q.includes('logistics')) {
+                return `ReverseLogix-AI is an AI-powered reverse logistics management and intelligent returns analytics system. Repository: https://github.com/poojakambamsri-cmd/ReverseLogix-AI`;
+            } else if (q.includes('wish') || q.includes('holiday')) {
+                return `Wish Sharing App is an interactive full-stack web application for sending and managing customized holiday and event greetings. Repository: https://github.com/poojakambamsri-cmd/wish-sharing-app`;
+            } else if (q.includes('geometry') || q.includes('turtle')) {
+                return `Geometry Game is an interactive Python & Turtle graphics game for learning coordinate geometry. Repository: https://github.com/poojakambamsri-cmd/Geometry_Game`;
+            } else {
+                return `That's a great question! Pooja Sri is a 2nd Year CSE (AI & ML) student at VNR VJIET, Hyderabad, specializing in Full Stack Web Development and AI tooling (LangChain, Ollama, ChromaDB). You can check her GitHub profile at https://github.com/poojakambamsri-cmd or ask me about her projects like Peer-to-Peer WebForge and ReverseLogix-AI!`;
+            }
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            alert("Thank you for your message! Pooja Sri will get back to you soon.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
